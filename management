@@ -1,0 +1,44 @@
+# %% [markdown]
+### **Personal Finance Management Agent**
+# %% [code]
+class FinanceAgent:
+    def __init__(self, income, budget, savings_goal):
+        self.income = income
+        self.budget = budget
+        self.savings_goal = savings_goal
+        self.expenses = {category: 0 for category in budget}
+def add_expense(self, category, amount):
+        if category in self.expenses:
+            self.expenses[category] += amount
+ def get_summary(self):
+        total_spent = sum(self.expenses.values())
+        remaining_budget = {cat: self.budget[cat] - self.expenses[cat] for cat in self.budget}
+        savings = self.income - total_spent
+        exceeded = {cat: amt for cat, amt in self.expenses.items() if amt > self.budget[cat]}
+ return {
+            "Total Spent": total_spent,
+            "Remaining Budget": remaining_budget,
+            "Savings": savings,
+            "Budget Exceeded": exceeded if exceeded else "None"
+        }
+def recommend_savings_strategy(self):
+        savings = self.income - sum(self.expenses.values())
+ if savings >= self.savings_goal:
+            return f"Great job! You're on track with savings. Current Savings: ${savings}"
+        else:
+            deficit = self.savings_goal - savings
+            return f"Consider reducing expenses by ${deficit} to meet your savings goal."
+# %% [code]
+income = 3000
+budget = {"Food": 600, "Entertainment": 300, "Transport": 400, "Rent": 1000, "Others": 300}
+savings_goal = 500
+agent = FinanceAgent(income, budget, savings_goal)
+agent.add_expense("Food", 550)
+agent.add_expense("Entertainment", 350)
+agent.add_expense("Transport", 380)
+agent.add_expense("Rent", 1000)
+agent.add_expense("Others", 250)
+
+summary = agent.get_summary()
+print("Financial Summary:", summary)
+print(agent.recommend_savings_strategy())
